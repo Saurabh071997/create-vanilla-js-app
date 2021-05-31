@@ -1,5 +1,11 @@
 const path = require("path");
 
+let mode = "development"
+
+if(process.env.NODE_ENV === "production"){
+	mode = "production"
+}
+
 const webpackConfig = {
 	entry: path.resolve(__dirname, "src", "index.js"),
 
@@ -8,7 +14,30 @@ const webpackConfig = {
 		path: path.resolve(__dirname, "dist")
 	},
 
-    mode: "development",
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				exclude: /(node_modules)/,
+				use: {
+					loader: "babel-loader",
+					options: {
+						presets: ["@babel/preset-env"]
+					}
+				}
+			}
+		]
+	},
+
+	
+	devtool: "inline-source-map",
+	devServer: {
+    	contentBase: './dist',
+    	port: 3000
+	},
+
+    mode:mode
+
 
 };
 

@@ -5,3 +5,10 @@ const elvenShieldRecipe = {
 }
 
 console.log(elvenShieldRecipe)
+
+const elvenGauntletRecipe = {
+    ...elvenShieldRecipe, 
+    leather:4
+}
+
+console.log(elvenGauntletRecipe)
