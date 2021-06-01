@@ -1,4 +1,6 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 
 let mode = "development"
 
@@ -11,7 +13,8 @@ const webpackConfig = {
 
 	output: {
 		filename: "main.js",
-		path: path.resolve(__dirname, "dist")
+		path: path.resolve(__dirname, "dist"),
+		clean: true 
 	},
 
 	module: {
@@ -38,6 +41,13 @@ const webpackConfig = {
 			}
 		]
 	},
+
+	plugins: [
+		new HtmlWebpackPlugin({
+			title: "Vanilla JS Starter",
+			template: path.resolve(__dirname, "src", "index.html")
+		})
+	],
 
 	
 	devtool: "inline-source-map",
