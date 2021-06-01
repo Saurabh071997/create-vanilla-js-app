@@ -1,9 +1,6 @@
+// import _ from "lodash";
 import './App.css'
 import JSLogo from './js_img.gif'
-
-//         // <img src=${JSLogo} alt="img" class="bg-img"/>
-
-
 
 const App = () =>{
 
