@@ -25,6 +25,11 @@ const webpackConfig = {
 						presets: ["@babel/preset-env"]
 					}
 				}
+			},
+
+			{
+				test: /\.css$/i,
+				use: ["style-loader", "css-loader"]
 			}
 		]
 	},

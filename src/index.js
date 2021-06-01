@@ -1,3 +1,5 @@
+import './App.css'
+
 const elvenShieldRecipe = {
     leatherstrips: 2, 
     ironIngot:1,
@@ -12,3 +14,8 @@ const elvenGauntletRecipe = {
 }
 
 console.log(elvenGauntletRecipe)
+
+document.getElementById('root')
+.innerHTML = `
+    <h1>JS Starter pack</h1>
+`
