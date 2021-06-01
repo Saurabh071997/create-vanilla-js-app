@@ -1,4 +1,4 @@
-import './App.css'
+import App from './App'
 
 const elvenShieldRecipe = {
     leatherstrips: 2, 
@@ -16,6 +16,4 @@ const elvenGauntletRecipe = {
 console.log(elvenGauntletRecipe)
 
 document.getElementById('root')
-.innerHTML = `
-    <h1>JS Starter pack</h1>
-`
+.innerHTML = App();
