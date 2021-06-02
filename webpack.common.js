@@ -1,15 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-
-let mode = "development"
-let target = "web"
-
-if(process.env.NODE_ENV === "production"){
-	mode = "production"
-	target = "browserslist"
-}
 
 const webpackConfig = {
 	entry: path.resolve(__dirname, "src", "index.js"),
@@ -66,19 +59,14 @@ const webpackConfig = {
 					priority: 1
 				}
 			}
-		}
+		},
+
+		minimizer: [
+			new CssMinimizerPlugin(),
+		  ],
 	},
 
 	
-	devtool: "inline-source-map",
-	devServer: {
-    	contentBase: './dist',
-    	port: 3000
-	},
-
-    mode:mode,
-	target:target
-
 
 };
 
