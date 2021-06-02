@@ -3,9 +3,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 
 let mode = "development"
+let target = "web"
 
 if(process.env.NODE_ENV === "production"){
 	mode = "production"
+	target = "browserslist"
 }
 
 const webpackConfig = {
@@ -14,6 +16,7 @@ const webpackConfig = {
 	output: {
 		filename: "[name].[contenthash].bundle.js",
 		path: path.resolve(__dirname, "dist"),
+		assetModuleFilename: "images/[hash][ext][query]",
 		clean: true 
 	},
 
@@ -69,7 +72,8 @@ const webpackConfig = {
     	port: 3000
 	},
 
-    mode:mode
+    mode:mode,
+	target:target
 
 
 };
