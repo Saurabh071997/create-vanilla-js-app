@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 
 let mode = "development"
@@ -49,7 +50,10 @@ const webpackConfig = {
 		new HtmlWebpackPlugin({
 			title: "Vanilla JS Starter",
 			template: path.resolve(__dirname, "src", "index.html")
-		})
+		}),
+		new ESLintPlugin({
+			extensions: ["js"],
+		  })
 	],
 
 	optimization: {

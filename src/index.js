@@ -13,6 +13,9 @@ const elvenGauntletRecipe = {
     leather:4
 }
 
+let something = true;
+console.log(something)
+
 console.log(elvenGauntletRecipe)
 
 document.getElementById('root')
