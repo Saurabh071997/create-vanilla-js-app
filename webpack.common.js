@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require('eslint-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+
 
 const webpackConfig = {
 	entry: path.resolve(__dirname, "src", "index.js"),
@@ -12,6 +14,10 @@ const webpackConfig = {
 		path: path.resolve(__dirname, "dist"),
 		assetModuleFilename: "images/[hash][ext][query]",
 		clean: true 
+	},
+
+	performance:{
+		hints:false
 	},
 
 	module: {
@@ -33,7 +39,7 @@ const webpackConfig = {
 			},
 
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
 				type: "asset"
 			}
 		]
@@ -46,7 +52,8 @@ const webpackConfig = {
 		}),
 		new ESLintPlugin({
 			extensions: ["js"],
-		  })
+		  }),
+		new FaviconsWebpackPlugin('./src/favicon.png')
 	],
 
 	optimization: {
