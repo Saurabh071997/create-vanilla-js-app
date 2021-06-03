@@ -16,10 +16,6 @@ const webpackConfig = {
 		clean: true 
 	},
 
-	performance:{
-		hints:false
-	},
-
 	module: {
 		rules: [
 			{

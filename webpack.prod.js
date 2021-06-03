@@ -4,5 +4,8 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   mode: 'production',
   target: "browserslist",
-  devtool: 'source-map'
+  devtool: 'source-map',
+  performance:{
+		hints:false
+	},
 });
